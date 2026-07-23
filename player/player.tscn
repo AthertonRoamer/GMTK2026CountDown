@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ccpumdfbcus5i"]
+
+[ext_resource type="Script" uid="uid://bov0obb8xpbfu" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Texture2D" uid="uid://dpe6h6noy0n7o" path="res://assets/art_round_1/player_and_guns.png" id="2_rkbax"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1ov4"]
+radius = 24.0
+height = 88.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1433729019]
+script = ExtResource("1_oul6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650863655]
+scale = Vector2(4, 4)
+texture = ExtResource("2_rkbax")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1660617091]
+shape = SubResource("CapsuleShape2D_a1ov4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1398724205]
+position_smoothing_enabled = true
+
+[node name="GunSprite" type="Sprite2D" parent="." unique_id=495091928]
+scale = Vector2(4, 4)
+texture = ExtResource("2_rkbax")
+hframes = 8
+frame = 2
