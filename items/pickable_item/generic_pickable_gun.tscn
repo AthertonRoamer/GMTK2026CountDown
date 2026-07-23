@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cgjut4trychs7"]
+
+[ext_resource type="Script" uid="uid://btj2twrxffnnp" path="res://items/pickable_item/generic_pickable_item.gd" id="1_se4cd"]
+[ext_resource type="Shape2D" uid="uid://di5vs8r4c0yua" path="res://items/pickable_item/pickable_item_collision_shape.tres" id="2_xvm0p"]
+
+[node name="GenericPickableGun" type="Area2D" unique_id=815393875]
+script = ExtResource("1_se4cd")
+metadata/_custom_type_script = "uid://btj2twrxffnnp"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=567733407]
+rotation = 0.7853982
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1205387317]
+shape = ExtResource("2_xvm0p")
+
+[node name="Label" type="Label" parent="." unique_id=1645629022]
+visible = false
+offset_left = -37.0
+offset_top = -66.0
+offset_right = 36.0
+offset_bottom = -43.0
+text = "R to Grab"

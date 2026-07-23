@@ -7,6 +7,8 @@ var level : CustomLevel
 
 var active : bool = true #moving or listening for input
 
+@export var primary_item : PrimaryItem
+
 
 #region physics variables
 @export_group("Walk")
@@ -50,6 +52,8 @@ var health = starting_health:
 
 
 func _ready() -> void:
+	if primary_item:
+		primary_item.add_to_entity(self)
 	add_to_group("damageable")
 	if set_current_friction_from_slow_down_time:
 		#250 px/sec 250 px/sec / 1 sec = 250 px / sec /sec
@@ -134,7 +138,8 @@ func _physics_process(delta: float) -> void:
 
 
 func take_primary_action() -> void:
-	pass
+	if primary_item:
+		primary_item.use(self)
 	
 	
 func take_secondary_action() -> void:
@@ -149,3 +154,14 @@ func take_damage(dmg : float, _damage_type: String = "default") -> void:
 func die() -> void:
 	died.emit()
 	queue_free()
+	
+	
+func add_primary_item(pi : PrimaryItem) -> void:
+	if pi != primary_item and primary_item:
+		drop_primary_item()
+	primary_item = pi
+		
+		
+func drop_primary_item() -> void:
+	primary_item.remove_from_entity(self)
+	primary_item.place_on_ground(position + Vector2.RIGHT.rotated(rotation) * 75)

@@ -2,27 +2,43 @@
 
 [ext_resource type="Script" uid="uid://bov0obb8xpbfu" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://dpe6h6noy0n7o" path="res://assets/art_round_1/player_and_guns.png" id="2_rkbax"]
+[ext_resource type="Resource" uid="uid://dtwyio82yjwdg" path="res://items/guns/basic_gun.tres" id="2_yw30f"]
+[ext_resource type="Script" uid="uid://dckjuo2vl78xe" path="res://player/generic_player_gun.gd" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1ov4"]
+radius = 6.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pefxb"]
 radius = 24.0
-height = 88.0
+height = 58.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1433729019]
 script = ExtResource("1_oul6g")
+primary_item = ExtResource("2_yw30f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1650863655]
 scale = Vector2(4, 4)
 texture = ExtResource("2_rkbax")
 hframes = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1660617091]
+[node name="GunCollisionShape" type="CollisionShape2D" parent="." unique_id=1660617091]
+position = Vector2(0, -28)
 shape = SubResource("CapsuleShape2D_a1ov4")
+disabled = true
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=1211513343]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_pefxb")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1398724205]
 position_smoothing_enabled = true
 
 [node name="GunSprite" type="Sprite2D" parent="." unique_id=495091928]
 scale = Vector2(4, 4)
-texture = ExtResource("2_rkbax")
-hframes = 8
-frame = 2
+
+[node name="GenericGun" type="Node2D" parent="." unique_id=1387843992 node_paths=PackedStringArray("fire_position_node", "wielder")]
+position = Vector2(0, -43)
+script = ExtResource("3_g1dw6")
+fire_position_node = NodePath(".")
+wielder = NodePath("..")

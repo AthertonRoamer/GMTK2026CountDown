@@ -59,13 +59,12 @@ func _physics_process(delta):
 func update_position(delta) -> void:
 	position += velocity * delta
 
-	
-	
+
 func update_position_with_gravity(delta) -> void:
 	velocity.y += gravity_accel
 	update_position(delta)
-	
-	
+
+
 func extinguish() -> void:
 	queue_free()
 

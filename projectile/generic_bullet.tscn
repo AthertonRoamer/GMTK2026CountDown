@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b0o01jhy4yu1j"]
+
+[ext_resource type="Script" uid="uid://bbxceajwfyovj" path="res://projectile/generic_bullet.gd" id="1_4xtqd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xtqd"]
+radius = 2.0
+height = 8.0
+
+[node name="GenericBullet" type="Area2D" unique_id=396037485 node_paths=PackedStringArray("duration_timer")]
+script = ExtResource("1_4xtqd")
+extinguish_on_impact = true
+duration_timer = NodePath("Timer")
+duration = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=748345381]
+position = Vector2(-2, 0)
+scale = Vector2(4, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=24536432]
+shape = SubResource("CapsuleShape2D_4xtqd")
+
+[node name="Timer" type="Timer" parent="." unique_id=712191897]

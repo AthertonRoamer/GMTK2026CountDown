@@ -5,6 +5,8 @@
 [ext_resource type="TileSet" uid="uid://dgrpdym3ks4yf" path="res://tile_sets/background_tile_set.tres" id="2_p2om3"]
 [ext_resource type="TileSet" uid="uid://cbehj5o0myee6" path="res://tile_sets/wall_tile_set.tres" id="3_m4c86"]
 [ext_resource type="PackedScene" uid="uid://dlx22i05e6720" path="res://map_items/door/door.tscn" id="5_m4c86"]
+[ext_resource type="PackedScene" uid="uid://cgjut4trychs7" path="res://items/pickable_item/generic_pickable_gun.tscn" id="6_vijba"]
+[ext_resource type="Resource" uid="uid://v2ap4bqx6uwm" path="res://items/guns/bigger_gun.tres" id="7_bbwh1"]
 
 [node name="1TestLevel" type="Node2D" unique_id=1984232441]
 script = ExtResource("1_kkaju")
@@ -26,3 +28,6 @@ position = Vector2(504, 278)
 
 [node name="Door" parent="." unique_id=1708082770 instance=ExtResource("5_m4c86")]
 position = Vector2(320, 512)
+
+[node name="GenericPickableGun" parent="." unique_id=815393875 instance=ExtResource("6_vijba")]
+item = ExtResource("7_bbwh1")
