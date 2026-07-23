@@ -40,3 +40,11 @@ func exit_game_to_menu() -> void:
 	if is_instance_valid(game):
 		game.queue_free()
 	load_main_menu()
+	
+	
+func get_world() -> Node2D:
+	if level:
+		return level.get_world()
+	else:
+		push_error("Tried to get world but no level exists")
+		return null

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Gun" format=3 uid="uid://dtwyio82yjwdg"]
+
+[ext_resource type="Script" uid="uid://dbyr2exnn4t3d" path="res://items/guns/gun.gd" id="1_bdmwd"]
+[ext_resource type="Texture2D" uid="uid://dpe6h6noy0n7o" path="res://assets/art_round_1/player_and_guns.png" id="1_yxucn"]
+[ext_resource type="PackedScene" uid="uid://cgjut4trychs7" path="res://items/pickable_item/generic_pickable_gun.tscn" id="2_7ioen"]
+[ext_resource type="PackedScene" uid="uid://b0o01jhy4yu1j" path="res://projectile/generic_bullet.tscn" id="2_dphdk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxucn"]
+atlas = ExtResource("1_yxucn")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk4ky"]
+atlas = ExtResource("1_yxucn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb3uw"]
+atlas = ExtResource("1_yxucn")
+region = Rect2(64, 0, 32, 16)
+
+[resource]
+script = ExtResource("1_bdmwd")
+image = SubResource("AtlasTexture_pk4ky")
+bullet_texture = SubResource("AtlasTexture_yxucn")
+name = "basic_gun"
+pickable_scene = ExtResource("2_7ioen")
+pickable_image = SubResource("AtlasTexture_eb3uw")
+metadata/_custom_type_script = "uid://dbyr2exnn4t3d"

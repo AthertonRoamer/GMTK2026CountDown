@@ -1,7 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxb8hycll1kwn"]
+[gd_scene format=3 uid="uid://cxb8hycll1kwn"]
 
 [ext_resource type="Script" uid="uid://dbw3wa6fmav0i" path="res://projectile/standard_gun_bullet.gd" id="1_u21hw"]
-[ext_resource type="Texture2D" uid="uid://bkjc81nmv486g" path="res://assets/Projectiles.png" id="2_qbu20"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_daedc"]
 radius = 2.0
@@ -127,7 +126,7 @@ damping_max = 100.0
 scale_curve = SubResource("CurveTexture_ioued")
 color_ramp = SubResource("GradientTexture1D_ov85m")
 
-[node name="smg_bullet" type="Area2D" node_paths=PackedStringArray("duration_timer")]
+[node name="smg_bullet" type="Area2D" unique_id=661557486 node_paths=PackedStringArray("duration_timer")]
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_u21hw")
@@ -139,42 +138,37 @@ duration_timer = NodePath("lifespan")
 duration = 10.0
 impact_knockback = 100
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1071526944]
 texture_filter = 1
 scale = Vector2(1.75, 1.75)
-texture = ExtResource("2_qbu20")
 hframes = 8
 frame = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1874192920]
 visible = false
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_daedc")
 
-[node name="lifespan" type="Timer" parent="."]
+[node name="lifespan" type="Timer" parent="." unique_id=893328496]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1172823977]
 visible = false
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_g0ebo")
 position = Vector2(-12, 0)
 amount = 32
-texture = ExtResource("2_qbu20")
 lifetime = 0.3
 process_material = SubResource("ParticleProcessMaterial_1brg8")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1721188182]
 visible = false
 material = SubResource("CanvasItemMaterial_61q2t")
 position = Vector2(18, 0)
-texture = ExtResource("2_qbu20")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_xhjti")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=152376250]
+libraries/ = SubResource("AnimationLibrary_xhjti")
 
-[node name="hit" type="GPUParticles2D" parent="."]
+[node name="hit" type="GPUParticles2D" parent="." unique_id=1219552973]
 z_index = 10
 z_as_relative = false
 texture_filter = 1
@@ -189,7 +183,7 @@ speed_scale = 4.0
 explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_54rnq")
 
-[node name="shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=54486284]
 volume_db = -17.333
 autoplay = true
 max_distance = 500.0

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b4djjmd6xrkdy"]
+
+[ext_resource type="Script" uid="uid://btj2twrxffnnp" path="res://items/pickable_item/generic_pickable_item.gd" id="1_qan8x"]
+[ext_resource type="Shape2D" uid="uid://di5vs8r4c0yua" path="res://items/pickable_item/pickable_item_collision_shape.tres" id="2_lctmo"]
+
+[node name="GenericPickableItem" type="Area2D" unique_id=901693635]
+script = ExtResource("1_qan8x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1225917518]
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1518914677]
+shape = ExtResource("2_lctmo")
+
+[node name="Label" type="Label" parent="." unique_id=577464421]
+visible = false
+offset_left = -37.0
+offset_top = -66.0
+offset_right = 36.0
+offset_bottom = -43.0
+text = "R to Grab"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
