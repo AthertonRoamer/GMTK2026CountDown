@@ -1,0 +1,57 @@
+[gd_resource type="TileSet" format=3 uid="uid://cbehj5o0myee6"]
+
+[ext_resource type="Texture2D" uid="uid://ctdeypjkje3mu" path="res://assets/art_round_1/more_walls_turret.png" id="1_giv3i"]
+[ext_resource type="Texture2D" uid="uid://6rxk0d1wa2gp" path="res://assets/art_round_1/walls_ammo_bullets.png" id="2_w4n8p"]
+[ext_resource type="Texture2D" uid="uid://baqwxvdxrsvcw" path="res://assets/art_round_1/walls_continued.png" id="3_fxltk"]
+[ext_resource type="Texture2D" uid="uid://ctkdnkuq3m0le" path="res://assets/art_round_1/doors_turretx2_control_panel.png" id="4_0nvms"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwper"]
+texture = ExtResource("1_giv3i")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1egdr"]
+texture = ExtResource("2_w4n8p")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g40tl"]
+texture = ExtResource("3_fxltk")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_180ul"]
+texture = ExtResource("4_0nvms")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_mwper")
+sources/2 = SubResource("TileSetAtlasSource_1egdr")
+sources/3 = SubResource("TileSetAtlasSource_g40tl")
+sources/4 = SubResource("TileSetAtlasSource_180ul")

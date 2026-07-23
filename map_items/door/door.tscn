@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dlx22i05e6720"]
+
+[ext_resource type="Texture2D" uid="uid://ctkdnkuq3m0le" path="res://assets/art_round_1/doors_turretx2_control_panel.png" id="1_pja8g"]
+[ext_resource type="Script" uid="uid://glv271tomuqn" path="res://map_items/door/door.gd" id="1_q87vr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pefxb"]
+size = Vector2(28, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpg11"]
+size = Vector2(72, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g345k"]
+size = Vector2(28, 20)
+
+[node name="Door" type="StaticBody2D" unique_id=1708082770]
+script = ExtResource("1_q87vr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=718518352]
+scale = Vector2(4, 4)
+texture = ExtResource("1_pja8g")
+hframes = 8
+frame = 4
+
+[node name="LeftDoorFrame" type="CollisionShape2D" parent="." unique_id=1195488749]
+position = Vector2(-50, 0)
+shape = SubResource("RectangleShape2D_pefxb")
+
+[node name="Door" type="CollisionShape2D" parent="." unique_id=495200511]
+shape = SubResource("RectangleShape2D_vpg11")
+
+[node name="RightDoorFrame" type="CollisionShape2D" parent="." unique_id=170665171]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_g345k")

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://baaluob8u3ca0"]
+
+[ext_resource type="Script" uid="uid://28c51q8pnt3d" path="res://framework/game/game.gd" id="1_hica5"]
+[ext_resource type="PackedScene" uid="uid://cw01qeyxavh32" path="res://framework/game/level_system/level_menu/level_menu.tscn" id="2_2ckys"]
+[ext_resource type="Script" uid="uid://d3p0l0b5841ro" path="res://framework/game/game_level_manager.gd" id="2_erbt7"]
+[ext_resource type="Script" uid="uid://tidjdpqv0mrg" path="res://framework/game/level_system/level/level_data.gd" id="3_edldn"]
+[ext_resource type="PackedScene" uid="uid://d3yeukgb318c1" path="res://test_levels/1_test_level.tscn" id="4_1qalo"]
+
+[sub_resource type="Resource" id="Resource_rvnd4"]
+script = ExtResource("3_edldn")
+level_scene = ExtResource("4_1qalo")
+metadata/_custom_type_script = "uid://tidjdpqv0mrg"
+
+[sub_resource type="Resource" id="Resource_y8b25"]
+script = ExtResource("3_edldn")
+metadata/_custom_type_script = "uid://tidjdpqv0mrg"
+
+[node name="Game" type="Node" unique_id=1775706799]
+script = ExtResource("1_hica5")
+
+[node name="LevelMenu" parent="." unique_id=1670031119 instance=ExtResource("2_2ckys")]
+
+[node name="LevelManager" type="Node" parent="." unique_id=671799761]
+script = ExtResource("2_erbt7")
+test_level = SubResource("Resource_rvnd4")
+insert_test_level_at_beginning_of_list = true
+level_list = Array[ExtResource("3_edldn")]([SubResource("Resource_y8b25")])
