@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://6v7ydukw28j0"]
+
+[ext_resource type="Script" uid="uid://bcs5pnhyaix4a" path="res://bomb_plant_zone.gd" id="1_56nb1"]
+
+[node name="BombPlantZone" type="Area2D" unique_id=1348945888]
+script = ExtResource("1_56nb1")
