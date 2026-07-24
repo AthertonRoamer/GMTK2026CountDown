@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b5sewg0m08yoo"]
+
+[ext_resource type="Script" uid="uid://dqlu1qm56cqyn" path="res://hud/hud.gd" id="1_6ca3a"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1506328032]
+script = ExtResource("1_6ca3a")
+
+[node name="Control" type="Control" parent="." unique_id=1138793399]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1377554392]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = -133.0
+offset_right = 213.0
+offset_bottom = -79.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=223871784]
+layout_mode = 2
+text = "Health:"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer" unique_id=1387188053]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
