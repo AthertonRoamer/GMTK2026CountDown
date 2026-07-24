@@ -1,9 +1,9 @@
 class_name GenericGun
 extends CoolDownProjectileHandler
 
-@export var damage : int
+@export var damage : int = 10
 @export var bullet_texture : Texture2D
-@export var speed : float 
+@export var speed : float = 500
 
 func set_up_projectile() -> Projectile:
 	var new_projectile : Projectile = super()

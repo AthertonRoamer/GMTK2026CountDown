@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dlx22i05e6720" path="res://map_items/door/door.tscn" id="5_m4c86"]
 [ext_resource type="PackedScene" uid="uid://cgjut4trychs7" path="res://items/pickable_item/generic_pickable_gun.tscn" id="6_vijba"]
 [ext_resource type="Resource" uid="uid://v2ap4bqx6uwm" path="res://items/guns/bigger_gun.tres" id="7_bbwh1"]
+[ext_resource type="PackedScene" uid="uid://c375j8mj8fkfs" path="res://enemies/basic_enemy/basic_enemy.tscn" id="8_bbwh1"]
 
 [node name="1TestLevel" type="Node2D" unique_id=1984232441]
 script = ExtResource("1_kkaju")
@@ -31,3 +32,19 @@ position = Vector2(320, 512)
 
 [node name="GenericPickableGun" parent="." unique_id=815393875 instance=ExtResource("6_vijba")]
 item = ExtResource("7_bbwh1")
+
+[node name="BasicEnemy" parent="." unique_id=447549324 node_paths=PackedStringArray("route") instance=ExtResource("8_bbwh1")]
+route = NodePath("../Routes/Route1")
+
+[node name="Routes" type="Node2D" parent="." unique_id=1388435928]
+
+[node name="Route1" type="Node2D" parent="Routes" unique_id=734621802]
+
+[node name="0" type="Node2D" parent="Routes/Route1" unique_id=412544359]
+position = Vector2(278, 400)
+
+[node name="1" type="Node2D" parent="Routes/Route1" unique_id=1269335926]
+position = Vector2(319, 642)
+
+[node name="2" type="Node2D" parent="Routes/Route1" unique_id=1931978705]
+position = Vector2(-68, 610)

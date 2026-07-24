@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c375j8mj8fkfs"]
+
+[ext_resource type="Texture2D" uid="uid://dpe6h6noy0n7o" path="res://assets/art_round_1/player_and_guns.png" id="1_lbl0g"]
+[ext_resource type="Script" uid="uid://c44emcy87bdaj" path="res://enemies/basic_enemy/basic_enemy.gd" id="1_yx0l5"]
+[ext_resource type="Script" uid="uid://camaetxvhn1xp" path="res://state_machine/state_machine.gd" id="3_xuk7h"]
+[ext_resource type="Script" uid="uid://d283prp6rq2e5" path="res://enemies/basic_enemy/patrol.gd" id="4_xuk7h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pefxb"]
+radius = 24.0
+height = 58.0
+
+[node name="BasicEnemy" type="CharacterBody2D" unique_id=447549324]
+script = ExtResource("1_yx0l5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656126314]
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("1_lbl0g")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1435077637]
+position = Vector2(-16, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_pefxb")
+
+[node name="StateMachine" type="Node" parent="." unique_id=857932986]
+script = ExtResource("3_xuk7h")
+metadata/_custom_type_script = "uid://camaetxvhn1xp"
+
+[node name="PatrolState" type="Node" parent="StateMachine" unique_id=761537737]
+script = ExtResource("4_xuk7h")
+id = "patrol"
+first_active_state = true
+metadata/_custom_type_script = "uid://bvrnag0q3unxj"
