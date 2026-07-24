@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://v2ap4bqx6uwm" path="res://items/guns/bigger_gun.tres" id="7_bbwh1"]
 [ext_resource type="PackedScene" uid="uid://c375j8mj8fkfs" path="res://enemies/basic_enemy/basic_enemy.tscn" id="8_bbwh1"]
 [ext_resource type="PackedScene" uid="uid://dhnmb7di30wk8" path="res://enemies/turrets/turret.tscn" id="9_4a7mn"]
+[ext_resource type="PackedScene" uid="uid://b5sewg0m08yoo" path="res://hud/hud.tscn" id="10_m57v0"]
 
 [node name="1TestLevel" type="Node2D" unique_id=1984232441]
 script = ExtResource("1_kkaju")
@@ -52,3 +53,5 @@ position = Vector2(-68, 610)
 
 [node name="BasicTurret" parent="." unique_id=1864483126 instance=ExtResource("9_4a7mn")]
 position = Vector2(320, 232)
+
+[node name="Hud" parent="." unique_id=1506328032 instance=ExtResource("10_m57v0")]
