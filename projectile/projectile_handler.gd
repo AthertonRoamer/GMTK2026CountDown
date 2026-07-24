@@ -1,13 +1,21 @@
 class_name ProjectileHandler
 extends Node2D
 
-@export var projectile_scene : PackedScene #should extend Projectile
-@export var fire_position_node : Node2D
-@export var wielder : Node2D
+@export var projectile_scene : PackedScene = null #should extend Projectile
+@export var fire_position_node : Node2D = null
+@export var wielder : Node2D = null
 
 var projectile_direction : Vector2 = Vector2.RIGHT
 
 var firing_constantly : bool = false
+
+func _ready() -> void:
+	if projectile_scene == null:
+		projectile_scene = preload("res://projectile/generic_bullet.tscn")
+	if fire_position_node == null:
+		fire_position_node = self
+	if wielder == null:
+		wielder = get_parent()
 
 func set_up_projectile() -> Projectile:
 	var new_projectile : Projectile = projectile_scene.instantiate()

@@ -17,26 +17,35 @@ var health = starting_health:
 
 func _ready() -> void:
 	$VisionArea/CollisionShape2D.shape.radius = sight_range
-	$RayCast2D.target_position = Vector2.RIGHT * sight_range
+	$ShootRayCast2D.target_position = Vector2.RIGHT * sight_range
 	add_to_group("damageable")
 
 
-func _process(_delta: float) -> void:
-	if can_see_player():
-		rotate_toward_player()
-		if can_hit_player():
+func _process(delta: float) -> void:
+	rotate_toward_player(delta)
+	if can_hit_player():
 			fire()
 			
 			
 func fire():
+	$GenericGun.projectile_direction = Vector2.RIGHT.rotated(rotation)
 	$GenericGun.fire()
 		
 		
 func can_hit_player() -> bool:
-	return false
+	if not can_see_player():
+		return false
+	var player : Player = get_player()
+	if $ShootRayCast2D.get_collider() != player:
+		return false
+	return abs(global_position.direction_to(player.global_position).angle_to(Vector2.RIGHT.rotated(rotation))) < PI/32
 
 
-func rotate_toward_player() -> void:
+func rotate_toward_player(delta : float) -> void:
+	if not can_see_player():
+		return
+	var player : Player = get_player()
+	rotate_toward_direction(global_position.direction_to(player.global_position), delta)
 	global_rotation = current_direction.angle()
 	
 	
@@ -50,11 +59,19 @@ func rotate_toward_direction(target_direction : Vector2, delta : float, rotation
 	
 	
 func get_player() -> Node2D:
+	for body in $VisionArea.get_overlapping_bodies():
+		if body is Player:
+			return body
 	return null
 
 
 func can_see_player() -> bool:
-	return false
+	var player = get_player()
+	if player == null:
+		return false
+	$CanSeePlayerRayCast2D.target_position = to_local(player.global_position) 
+	$CanSeePlayerRayCast2D.force_raycast_update()
+	return $CanSeePlayerRayCast2D.get_collider() == player
 	
 	
 func take_damage(dmg, _dmg_type : String = "default") -> void:

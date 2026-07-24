@@ -4,10 +4,20 @@
 [ext_resource type="Script" uid="uid://c44emcy87bdaj" path="res://enemies/basic_enemy/basic_enemy.gd" id="1_yx0l5"]
 [ext_resource type="Script" uid="uid://camaetxvhn1xp" path="res://state_machine/state_machine.gd" id="3_xuk7h"]
 [ext_resource type="Script" uid="uid://d283prp6rq2e5" path="res://enemies/basic_enemy/patrol.gd" id="4_xuk7h"]
+[ext_resource type="Script" uid="uid://bmxbkjwgjd5bf" path="res://enemies/navigation/obstacle_detector/obstacle_detector.gd" id="5_m6spd"]
+[ext_resource type="Script" uid="uid://b41jf4g1ryyc2" path="res://enemies/basic_enemy/basic_fight_state.gd" id="5_u66kj"]
+[ext_resource type="Script" uid="uid://bpxb3pqe38h51" path="res://enemies/basic_enemy/basic_pursue_state.gd" id="6_fwb20"]
+[ext_resource type="Script" uid="uid://dckjuo2vl78xe" path="res://projectile/generic_gun.gd" id="8_hpkks"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pefxb"]
 radius = 24.0
 height = 58.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m6spd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pefxb"]
+atlas = ExtResource("1_lbl0g")
+region = Rect2(224, 0, 32, 32)
 
 [node name="BasicEnemy" type="CharacterBody2D" unique_id=447549324]
 script = ExtResource("1_yx0l5")
@@ -32,3 +42,33 @@ script = ExtResource("4_xuk7h")
 id = "patrol"
 first_active_state = true
 metadata/_custom_type_script = "uid://bvrnag0q3unxj"
+
+[node name="BasicFightState" type="Node" parent="StateMachine" unique_id=1847931963]
+script = ExtResource("5_u66kj")
+id = "fight"
+metadata/_custom_type_script = "uid://bvrnag0q3unxj"
+
+[node name="BasicPursueState" type="Node" parent="StateMachine" unique_id=583640909]
+script = ExtResource("6_fwb20")
+id = "pursue"
+metadata/_custom_type_script = "uid://bvrnag0q3unxj"
+
+[node name="ObstacleDetector" type="Node2D" parent="." unique_id=1882987302]
+script = ExtResource("5_m6spd")
+
+[node name="VisionArea" type="Area2D" parent="." unique_id=526051497]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=1466684124]
+shape = SubResource("CircleShape2D_m6spd")
+
+[node name="ShootRayCast2D" type="RayCast2D" parent="." unique_id=1388693341]
+
+[node name="CanSeePlayerRayCast2D" type="RayCast2D" parent="." unique_id=68786376]
+
+[node name="GenericGun" type="Node2D" parent="." unique_id=1967613015]
+position = Vector2(19, 0)
+script = ExtResource("8_hpkks")
+bullet_texture = SubResource("AtlasTexture_pefxb")
+speed = 300.0
+cool_down_time = 1.0
+metadata/_custom_type_script = "uid://dckjuo2vl78xe"
