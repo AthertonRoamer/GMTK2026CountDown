@@ -26,7 +26,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAQADAAAAAAAAAAEAAgAEAAAAAAAAAAIAAgAEAAA
 tile_set = ExtResource("3_m4c86")
 
 [node name="Player" parent="." unique_id=1433729019 instance=ExtResource("2_kkaju")]
-position = Vector2(504, 278)
+position = Vector2(-117, 108)
 
 [node name="Door" parent="." unique_id=1708082770 instance=ExtResource("5_m4c86")]
 position = Vector2(320, 512)
@@ -35,6 +35,8 @@ position = Vector2(320, 512)
 item = ExtResource("7_bbwh1")
 
 [node name="BasicEnemy" parent="." unique_id=447549324 node_paths=PackedStringArray("route") instance=ExtResource("8_bbwh1")]
+position = Vector2(186, 280)
+rotation = -1.5707964
 route = NodePath("../Routes/Route1")
 
 [node name="Routes" type="Node2D" parent="." unique_id=1388435928]
@@ -42,13 +44,20 @@ route = NodePath("../Routes/Route1")
 [node name="Route1" type="Node2D" parent="Routes" unique_id=734621802]
 
 [node name="0" type="Node2D" parent="Routes/Route1" unique_id=412544359]
-position = Vector2(278, 400)
+position = Vector2(179, 174)
 
 [node name="1" type="Node2D" parent="Routes/Route1" unique_id=1269335926]
-position = Vector2(319, 642)
+position = Vector2(685, 186)
 
 [node name="2" type="Node2D" parent="Routes/Route1" unique_id=1931978705]
-position = Vector2(-68, 610)
+position = Vector2(688, 457)
+
+[node name="3" type="Node2D" parent="Routes/Route1" unique_id=143508391]
+position = Vector2(206, 446)
 
 [node name="BasicTurret" parent="." unique_id=1864483126 instance=ExtResource("9_4a7mn")]
 position = Vector2(320, 232)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=404973402]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1376635848]

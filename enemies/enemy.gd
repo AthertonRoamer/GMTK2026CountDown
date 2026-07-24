@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var rotation_speed : float = 400
 @export var route : Node2D
 @export var sight_range : float = 400
+@export var pursue_distance : float = 350
 var current_direction : Vector2 = Vector2.RIGHT
 var last_known_player_position : Vector2 
 
@@ -43,7 +44,10 @@ func _physics_process(_delta) -> void:
 func set_state() -> void:
 	if can_see_player():
 		last_known_player_position = get_player().global_position
-		($StateMachine as StateMachine).set_state("fight")
+		if global_position.distance_to(last_known_player_position) > pursue_distance:
+			$StateMachine.set_state("pursue")
+		else:
+			($StateMachine as StateMachine).set_state("fight")
 	elif ($StateMachine as StateMachine).active_state.id == "fight":
 		$StateMachine.set_state("pursue")
 	elif $StateMachine.active_state.id == "pursue":

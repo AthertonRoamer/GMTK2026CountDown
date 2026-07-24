@@ -13,3 +13,5 @@ func process_state(delta : float) -> void:
 	get_patron().velocity = get_patron().walk_speed * walk_direction
 	get_patron().move_and_slide()
 	(get_patron() as Enemy).rotate_toward_direction(desired_direction, delta)
+	if get_patron().can_hit_player():
+		get_patron().fire()
