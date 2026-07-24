@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bov0obb8xpbfu" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Texture2D" uid="uid://dpe6h6noy0n7o" path="res://assets/art_round_1/player_and_guns.png" id="2_rkbax"]
 [ext_resource type="Resource" uid="uid://dtwyio82yjwdg" path="res://items/guns/basic_gun.tres" id="2_yw30f"]
-[ext_resource type="Script" uid="uid://dckjuo2vl78xe" path="res://player/generic_player_gun.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://dckjuo2vl78xe" path="res://projectile/generic_gun.gd" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1ov4"]
 radius = 6.0
