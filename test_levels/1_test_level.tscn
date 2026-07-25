@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b5sewg0m08yoo" path="res://hud/hud.tscn" id="10_m57v0"]
 [ext_resource type="Script" uid="uid://cw1dr6hs6n7nx" path="res://count_down/count_down.gd" id="11_mhyiy"]
 [ext_resource type="PackedScene" uid="uid://c2h51onarenl3" path="res://map_items/nuke/nuke.tscn" id="12_o271x"]
+[ext_resource type="PackedScene" uid="uid://b4djjmd6xrkdy" path="res://items/pickable_item/generic_pickable_item.tscn" id="13_xhia3"]
+[ext_resource type="Resource" uid="uid://cna3wa6bhe81c" path="res://items/key.tres" id="14_o725r"]
 
 [node name="1TestLevel" type="Node2D" unique_id=1984232441]
 script = ExtResource("1_kkaju")
@@ -41,6 +43,7 @@ item = ExtResource("7_bbwh1")
 position = Vector2(186, 280)
 rotation = -1.5707964
 route = NodePath("../Routes/Route1")
+dropped_item = ExtResource("14_o725r")
 
 [node name="Routes" type="Node2D" parent="." unique_id=1388435928]
 
@@ -72,5 +75,9 @@ objective_run_failure_message = "The nuke launched. You failed to stop it in tim
 
 [node name="Nuke" parent="." unique_id=799688003 instance=ExtResource("12_o271x")]
 position = Vector2(256, 895)
+
+[node name="GenericPickableItem" parent="." unique_id=901693635 instance=ExtResource("13_xhia3")]
+position = Vector2(161, 20)
+item = ExtResource("14_o725r")
 
 [connection signal="timeout" from="CountDown" to="CountDown" method="_on_timeout"]
