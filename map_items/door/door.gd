@@ -1,7 +1,10 @@
 class_name Door
 extends StaticBody2D
 
-@export var open : bool = true
+
+
+@export var open : bool = false
+@export var locked : bool = true
 
 func update_open() -> void:
 	if open:
@@ -21,6 +24,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		for body in $Area2D.get_overlapping_bodies():
 			if body is Player:
-				open = not open
+				if locked: 
+					if body.keys > 0 :
+						locked = false
+						body.keys -= 1
+				else :
+					open = not open
 				update_open()
-				
+			

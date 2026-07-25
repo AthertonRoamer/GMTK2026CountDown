@@ -8,8 +8,10 @@ extends CharacterBody2D
 @export var route : Node2D
 @export var sight_range : float = 400
 @export var pursue_distance : float = 350
+@export var dropped_item : Item 
 var current_direction : Vector2 = Vector2.RIGHT
 var last_known_player_position : Vector2 
+
 
 var starting_health : float = 100
 var health = starting_health:
@@ -97,5 +99,6 @@ func take_damage(dmg, _dmg_type : String = "default") -> void:
 	
 	
 func die():
+	dropped_item.place_on_ground(global_position)
 	queue_free()
 	

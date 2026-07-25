@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+var keys : int = 0
+
 signal died
 
 var level : CustomLevel
