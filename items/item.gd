@@ -23,4 +23,4 @@ func place_on_ground(position : Vector2) -> void:
 		item_node.item_name = name
 		item_node.position = position
 		item_node.item = self
-		Main.main.get_world().add_child(item_node)
+		Main.main.get_world().call_deferred("add_child", item_node)

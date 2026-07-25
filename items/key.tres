@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Key" format=3 uid="uid://cna3wa6bhe81c"]
+
+[ext_resource type="Texture2D" uid="uid://bt52lsfycmlfs" path="res://assets/art_round_1/Key.png" id="1_d1xeg"]
+[ext_resource type="Script" uid="uid://cuwl2uc0xhwwu" path="res://items/key.gd" id="1_uqc2c"]
+[ext_resource type="PackedScene" uid="uid://b4djjmd6xrkdy" path="res://items/pickable_item/generic_pickable_item.tscn" id="2_lqh7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_646gu"]
+atlas = ExtResource("1_d1xeg")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_uqc2c")
+name = "key"
+pickable_scene = ExtResource("2_lqh7e")
+pickable_image = SubResource("AtlasTexture_646gu")
+metadata/_custom_type_script = "uid://cuwl2uc0xhwwu"
