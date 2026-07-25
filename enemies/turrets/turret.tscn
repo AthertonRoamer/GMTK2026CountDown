@@ -17,6 +17,7 @@ region = Rect2(224, 0, 32, 32)
 
 [node name="BasicTurret" type="StaticBody2D" unique_id=1864483126]
 script = ExtResource("1_rqb6n")
+sight_range = 700.0
 rotation_speed = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397136743]
