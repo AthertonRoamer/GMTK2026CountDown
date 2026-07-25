@@ -1,0 +1,103 @@
+[gd_scene format=4 uid="uid://e04hutdafqsu"]
+
+[ext_resource type="Script" uid="uid://bgrhfw3eyr3pk" path="res://custom_framework/custom_level.gd" id="1_i2lx6"]
+[ext_resource type="TileSet" uid="uid://dgrpdym3ks4yf" path="res://tile_sets/background_tile_set.tres" id="2_henfs"]
+[ext_resource type="TileSet" uid="uid://cbehj5o0myee6" path="res://tile_sets/wall_tile_set.tres" id="3_yvfku"]
+[ext_resource type="PackedScene" uid="uid://6v7ydukw28j0" path="res://bomb/bomb_plant_zone.tscn" id="4_3j2e7"]
+[ext_resource type="PackedScene" uid="uid://ccpumdfbcus5i" path="res://player/player.tscn" id="5_1ekks"]
+[ext_resource type="PackedScene" uid="uid://dlx22i05e6720" path="res://map_items/door/door.tscn" id="6_2o50f"]
+[ext_resource type="PackedScene" uid="uid://cgjut4trychs7" path="res://items/pickable_item/generic_pickable_gun.tscn" id="7_avn7h"]
+[ext_resource type="Resource" uid="uid://v2ap4bqx6uwm" path="res://items/guns/bigger_gun.tres" id="8_p7rvg"]
+[ext_resource type="PackedScene" uid="uid://c375j8mj8fkfs" path="res://enemies/basic_enemy/basic_enemy.tscn" id="9_5wsxr"]
+[ext_resource type="Resource" uid="uid://cna3wa6bhe81c" path="res://items/key.tres" id="10_osm03"]
+[ext_resource type="PackedScene" uid="uid://dhnmb7di30wk8" path="res://enemies/turrets/turret.tscn" id="11_1lh4w"]
+[ext_resource type="PackedScene" uid="uid://b5sewg0m08yoo" path="res://hud/hud.tscn" id="12_phsy8"]
+[ext_resource type="Script" uid="uid://cw1dr6hs6n7nx" path="res://count_down/count_down.gd" id="13_q28b1"]
+[ext_resource type="PackedScene" uid="uid://c2h51onarenl3" path="res://map_items/nuke/nuke.tscn" id="14_pgjth"]
+[ext_resource type="PackedScene" uid="uid://brd2j4qgaw2xd" path="res://map_items/control_panel/nuke_control_panel.tscn" id="15_i3qbt"]
+[ext_resource type="PackedScene" uid="uid://cbf1gfky52j0a" path="res://map_items/extraction_point/extraction_point.tscn" id="16_dafar"]
+[ext_resource type="PackedScene" uid="uid://b4djjmd6xrkdy" path="res://items/pickable_item/generic_pickable_item.tscn" id="17_wt3x5"]
+
+[node name="Level" type="Node2D" unique_id=1984232441]
+script = ExtResource("1_i2lx6")
+
+[node name="Background2" type="ColorRect" parent="." unique_id=1615897608]
+offset_left = -29357.0
+offset_top = -21655.0
+offset_right = 34567.0
+offset_bottom = 37043.0
+color = Color(0, 0, 0, 1)
+
+[node name="Background" type="TileMapLayer" parent="." unique_id=1471683625]
+modulate = Color(0.3530626, 0.35306263, 0.35306257, 1)
+scale = Vector2(4, 4)
+tile_set = ExtResource("2_henfs")
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=1058687574]
+position = Vector2(64, 64)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAAAAAAAQADAAAAAAAAAAEAAgAEAAAAAAAAAAIAAgAEAAAAAAABAAAAAgAGAAAAAAACAAAAAgAGAAAAAAADAAAAAgAGAAAAAAAEAAAAAgAGAAAAAAAFAAAAAQAGAAAAAAAAAAMAAQAEAAAAAAAFAAMAAQAFAAAAAAAFAAEAAgAEAAAAAAAFAAIAAgAEAAAAAAAEAAMAAgAGAAAAAAADAAMAAgAGAAAAAAACAAMAAwABAAAAAAABAAMAAwADAAAAAAA=")
+tile_set = ExtResource("3_yvfku")
+
+[node name="BombPlantZone" parent="." unique_id=1348945888 instance=ExtResource("4_3j2e7")]
+position = Vector2(-55, 289)
+player_presence_label = true
+metadata/_edit_group_ = true
+
+[node name="Player" parent="." unique_id=1433729019 instance=ExtResource("5_1ekks")]
+position = Vector2(-117, 108)
+
+[node name="Door" parent="." unique_id=1708082770 instance=ExtResource("6_2o50f")]
+position = Vector2(320, 512)
+
+[node name="GenericPickableGun" parent="." unique_id=815393875 instance=ExtResource("7_avn7h")]
+item = ExtResource("8_p7rvg")
+
+[node name="BasicEnemy" parent="." unique_id=447549324 node_paths=PackedStringArray("route") instance=ExtResource("9_5wsxr")]
+position = Vector2(186, 280)
+rotation = -1.5707964
+route = NodePath("../Routes/Route1")
+dropped_item = ExtResource("10_osm03")
+
+[node name="Routes" type="Node2D" parent="." unique_id=1388435928]
+
+[node name="Route1" type="Node2D" parent="Routes" unique_id=734621802]
+
+[node name="0" type="Node2D" parent="Routes/Route1" unique_id=412544359]
+position = Vector2(179, 174)
+
+[node name="1" type="Node2D" parent="Routes/Route1" unique_id=1269335926]
+position = Vector2(685, 186)
+
+[node name="2" type="Node2D" parent="Routes/Route1" unique_id=1931978705]
+position = Vector2(688, 457)
+
+[node name="3" type="Node2D" parent="Routes/Route1" unique_id=143508391]
+position = Vector2(206, 446)
+
+[node name="BasicTurret" parent="." unique_id=1864483126 instance=ExtResource("11_1lh4w")]
+position = Vector2(320, 232)
+
+[node name="Hud" parent="." unique_id=1506328032 instance=ExtResource("12_phsy8")]
+
+[node name="CountDown" type="Timer" parent="." unique_id=825639823]
+wait_time = 600.0
+one_shot = true
+autostart = true
+script = ExtResource("13_q28b1")
+bomb_wait_time = 10.0
+
+[node name="Nuke" parent="." unique_id=799688003 instance=ExtResource("14_pgjth")]
+position = Vector2(256, 895)
+
+[node name="NukeControlPanel" parent="." unique_id=1142581502 instance=ExtResource("15_i3qbt")]
+position = Vector2(-66, 612)
+
+[node name="ExtractionPoint" parent="." unique_id=545399916 instance=ExtResource("16_dafar")]
+position = Vector2(-21, 114)
+
+[node name="GenericPickableItem" parent="." unique_id=901693635 instance=ExtResource("17_wt3x5")]
+position = Vector2(161, 20)
+item = ExtResource("10_osm03")
+
+[connection signal="timeout" from="CountDown" to="CountDown" method="_on_timeout"]
