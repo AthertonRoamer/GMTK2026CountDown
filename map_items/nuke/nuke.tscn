@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c2h51onarenl3"]
+
+[ext_resource type="Texture2D" uid="uid://dim4syxqh1yfy" path="res://assets/art_round_1/Nuke.png" id="1_idpa7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pefxb"]
+size = Vector2(513, 513)
+
+[node name="Nuke" type="StaticBody2D" unique_id=799688003]
+
+[node name="NukeImage" type="Sprite2D" parent="." unique_id=946570268]
+rotation = -3.1415925
+scale = Vector2(4, 4)
+texture = ExtResource("1_idpa7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1895255466]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_pefxb")
