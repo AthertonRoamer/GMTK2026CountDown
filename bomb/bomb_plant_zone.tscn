@@ -1,6 +1,44 @@
 [gd_scene format=3 uid="uid://6v7ydukw28j0"]
 
 [ext_resource type="Script" uid="uid://bcs5pnhyaix4a" path="res://bomb_plant_zone.gd" id="1_56nb1"]
+[ext_resource type="Texture2D" uid="uid://cwxup5pqtnccu" path="res://icon.svg" id="2_cjgdl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cjgdl"]
+load_path = "res://.godot/imported/walls_continued.png-02fb2546e5ba64726a6604d1398736fd.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pefxb"]
+size = Vector2(54, 53)
 
 [node name="BombPlantZone" type="Area2D" unique_id=1348945888]
 script = ExtResource("1_56nb1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2138980146]
+texture = ExtResource("2_cjgdl")
+
+[node name="Timer" type="Timer" parent="Sprite2D" unique_id=1594415142]
+wait_time = 0.4
+autostart = true
+
+[node name="Label" type="Label" parent="." unique_id=1936198665]
+offset_left = -126.0
+offset_top = -62.0
+offset_right = 124.0
+offset_bottom = -21.0
+text = "Hold F to plant bomb"
+horizontal_alignment = 1
+
+[node name="BombSprite" type="Sprite2D" parent="." unique_id=828209713]
+visible = false
+scale = Vector2(4, 4)
+texture = SubResource("CompressedTexture2D_cjgdl")
+hframes = 6
+frame = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1337062324]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=800585462]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_pefxb")
+disabled = true
+
+[connection signal="timeout" from="Sprite2D/Timer" to="." method="_on_timer_timeout"]
