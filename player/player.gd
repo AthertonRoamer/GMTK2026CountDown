@@ -153,6 +153,7 @@ func take_damage(dmg : float, _damage_type: String = "default") -> void:
 
 func die() -> void:
 	died.emit()
+	Main.level.hud.display_failure("You perished.")
 	queue_free()
 	
 	

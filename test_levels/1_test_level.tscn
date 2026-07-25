@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c375j8mj8fkfs" path="res://enemies/basic_enemy/basic_enemy.tscn" id="8_bbwh1"]
 [ext_resource type="PackedScene" uid="uid://dhnmb7di30wk8" path="res://enemies/turrets/turret.tscn" id="9_4a7mn"]
 [ext_resource type="PackedScene" uid="uid://b5sewg0m08yoo" path="res://hud/hud.tscn" id="10_m57v0"]
+[ext_resource type="Script" uid="uid://cw1dr6hs6n7nx" path="res://count_down/count_down.gd" id="11_mhyiy"]
+[ext_resource type="PackedScene" uid="uid://c2h51onarenl3" path="res://map_items/nuke/nuke.tscn" id="12_o271x"]
 
 [node name="1TestLevel" type="Node2D" unique_id=1984232441]
 script = ExtResource("1_kkaju")
@@ -59,7 +61,16 @@ position = Vector2(206, 446)
 [node name="BasicTurret" parent="." unique_id=1864483126 instance=ExtResource("9_4a7mn")]
 position = Vector2(320, 232)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=404973402]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1376635848]
 [node name="Hud" parent="." unique_id=1506328032 instance=ExtResource("10_m57v0")]
+
+[node name="CountDown" type="Timer" parent="." unique_id=825639823]
+wait_time = 120.0
+one_shot = true
+autostart = true
+script = ExtResource("11_mhyiy")
+objective_run_failure_message = "The nuke launched. You failed to stop it in time."
+
+[node name="Nuke" parent="." unique_id=799688003 instance=ExtResource("12_o271x")]
+position = Vector2(256, 895)
+
+[connection signal="timeout" from="CountDown" to="CountDown" method="_on_timeout"]
