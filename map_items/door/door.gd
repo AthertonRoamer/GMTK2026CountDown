@@ -14,3 +14,13 @@ func update_open() -> void:
 		
 func _ready() -> void:
 	update_open()
+	
+	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		for body in $Area2D.get_overlapping_bodies():
+			if body is Player:
+				open = not open
+				update_open()
+				
