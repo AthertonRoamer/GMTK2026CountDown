@@ -17,6 +17,18 @@
 [ext_resource type="Resource" uid="uid://cna3wa6bhe81c" path="res://items/key.tres" id="14_o725r"]
 [ext_resource type="PackedScene" uid="uid://6v7ydukw28j0" path="res://bomb/bomb_plant_zone.tscn" id="14_xhia3"]
 [ext_resource type="PackedScene" uid="uid://cbf1gfky52j0a" path="res://map_items/extraction_point/extraction_point.tscn" id="15_o725r"]
+[ext_resource type="Script" uid="uid://c2wqt2ftqbwhv" path="res://upgrades/upgrade_options/level_upgrade_options.gd" id="18_vqida"]
+[ext_resource type="Resource" uid="uid://bxhqmcyaoylv4" path="res://upgrades/upgrade_options/default_upgrade_options.tres" id="19_c2bhn"]
+[ext_resource type="Script" uid="uid://bdljbq65f5goi" path="res://upgrades/upgrade_options/random_upgrade_options.gd" id="20_u2sup"]
+
+[sub_resource type="Resource" id="Resource_2gk58"]
+script = ExtResource("20_u2sup")
+pickable_scene = ExtResource("13_xhia3")
+metadata/_custom_type_script = "uid://bdljbq65f5goi"
+
+[sub_resource type="Resource" id="Resource_6ca3a"]
+script = ExtResource("20_u2sup")
+metadata/_custom_type_script = "uid://bdljbq65f5goi"
 
 [node name="1TestLevel" type="Node2D" unique_id=1984232441]
 script = ExtResource("1_kkaju")
@@ -51,7 +63,7 @@ item = ExtResource("7_bbwh1")
 position = Vector2(186, 280)
 rotation = -1.5707964
 route = NodePath("../Routes/Route1")
-dropped_item = ExtResource("14_o725r")
+dropped_item = SubResource("Resource_2gk58")
 
 [node name="Routes" type="Node2D" parent="." unique_id=1388435928]
 
@@ -93,5 +105,13 @@ position = Vector2(-21, 114)
 [node name="GenericPickableItem" parent="." unique_id=901693635 instance=ExtResource("13_xhia3")]
 position = Vector2(161, 20)
 item = ExtResource("14_o725r")
+
+[node name="LevelUpgradeOptions" type="Node" parent="." unique_id=660671876]
+script = ExtResource("18_vqida")
+upgrade_options = ExtResource("19_c2bhn")
+
+[node name="GenericPickableItem2" parent="." unique_id=1107941648 instance=ExtResource("13_xhia3")]
+position = Vector2(-136, -8)
+item = SubResource("Resource_6ca3a")
 
 [connection signal="timeout" from="CountDown" to="CountDown" method="_on_timeout"]

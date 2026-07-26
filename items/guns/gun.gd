@@ -7,6 +7,8 @@ extends PrimaryItem
 @export var bullet_texture : Texture2D
 @export var speed : float = 1000
 @export var cool_down_time : float = 0.5
+@export var bullet_size_multiplier : float = 1
+@export var bullet_spray : int = 1
 
 func add_to_entity(entity) -> void:
 	entity.add_primary_item(self)
@@ -20,7 +22,11 @@ func add_to_entity(entity) -> void:
 	gun.speed = speed
 	gun.bullet_texture = bullet_texture
 	gun.cool_down_time = cool_down_time
-	
+	gun.bullet_size_multiplier = bullet_size_multiplier
+	gun.bullet_spray = bullet_spray
+	if Main.level.hud:
+		Main.level.hud.update_gun_stats()
+		
 	
 func remove_from_entity(entity) -> void:
 	if entity.get_node_or_null("GunCollisionShape"):

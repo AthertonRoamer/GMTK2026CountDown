@@ -34,6 +34,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Control" unique_id=1569094333]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -43,17 +44,6 @@ offset_top = 25.0
 offset_right = 66.0
 offset_bottom = 75.0
 metadata/_edit_group_ = true
-
-[node name="CountDown" type="Label" parent="Control/Panel" unique_id=1496038224]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 38
-text = "5:00"
-horizontal_alignment = 1
 
 [node name="Instructions" type="Label" parent="Control" unique_id=1349357442]
 layout_mode = 1
@@ -135,6 +125,105 @@ layout_mode = 2
 process_mode = 3
 layout_mode = 2
 text = "Next Level"
+
+[node name="GunStatsDisplay" type="Control" parent="Control" unique_id=1348700375]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -196.0
+offset_right = -31.0
+offset_bottom = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="Control/GunStatsDisplay" unique_id=1632855673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/GunStatsDisplay/Panel" unique_id=1879312356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Header" type="Label" parent="Control/GunStatsDisplay/Panel/VBoxContainer" unique_id=1717475431]
+layout_mode = 2
+text = "Gun Stats:"
+horizontal_alignment = 1
+
+[node name="Body" type="Label" parent="Control/GunStatsDisplay/Panel/VBoxContainer" unique_id=624028238]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_alignment = 1
+
+[node name="CountDown" type="Label" parent="Control" unique_id=1496038224]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 38
+text = "5:00"
+horizontal_alignment = 1
+
+[node name="UpgradeOptionDisplay" type="Control" parent="Control" unique_id=2019323178]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control/UpgradeOptionDisplay" unique_id=808635674]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/UpgradeOptionDisplay" unique_id=1962010572]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.0
+offset_top = 200.0
+offset_right = 137.0
+offset_bottom = 265.0
+theme_override_font_sizes/font_size = 24
+text = "Choose an Upgrade"
+horizontal_alignment = 1
+
+[node name="UpgradeOptionDisplay" type="CenterContainer" parent="Control/UpgradeOptionDisplay" unique_id=9483657]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 11.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpgradeHolder" type="GridContainer" parent="Control/UpgradeOptionDisplay/UpgradeOptionDisplay" unique_id=702770913]
+layout_mode = 2
+columns = 3
 
 [connection signal="pressed" from="Control/FailureDisplay/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Control/VictoryDisplay/VBoxContainer/Next Level" to="." method="_on_next_level_pressed"]

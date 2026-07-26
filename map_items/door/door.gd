@@ -28,6 +28,7 @@ func _input(event: InputEvent) -> void:
 					if body.keys > 0 :
 						locked = false
 						body.keys -= 1
+						open = not open
 				else :
 					open = not open
 				update_open()
