@@ -4,13 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://cw01qeyxavh32" path="res://framework/game/level_system/level_menu/level_menu.tscn" id="2_2ckys"]
 [ext_resource type="Script" uid="uid://d3p0l0b5841ro" path="res://framework/game/game_level_manager.gd" id="2_erbt7"]
 [ext_resource type="Script" uid="uid://tidjdpqv0mrg" path="res://framework/game/level_system/level/level_data.gd" id="3_edldn"]
+
 [ext_resource type="PackedScene" uid="uid://e08ckq18wnum" path="res://levels/1_level.tscn" id="4_1qalo"]
 [ext_resource type="PackedScene" uid="uid://d3yeukgb318c1" path="res://test_levels/1_test_level.tscn" id="4_10ul7"]
 [ext_resource type="PackedScene" uid="uid://dgx1wupnepqos" path="res://levels/2_level.tscn" id="4_h6l0g"]
 
+
+
+[ext_resource type="PackedScene" uid="uid://e08ckq18wnum" path="res://levels/old_tutorial.tscn" id="4_1qalo"]
+[ext_resource type="PackedScene" uid="uid://dgx1wupnepqos" path="res://levels/long_level.tscn" id="4_h6l0g"]
+
 [sub_resource type="Resource" id="Resource_rvnd4"]
 script = ExtResource("3_edldn")
-level_scene = ExtResource("4_10ul7")
+level_scene = ExtResource("4_1qalo")
+
 metadata/_custom_type_script = "uid://tidjdpqv0mrg"
 
 [sub_resource type="Resource" id="Resource_y8b25"]

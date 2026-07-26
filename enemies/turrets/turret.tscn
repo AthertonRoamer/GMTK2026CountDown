@@ -18,7 +18,7 @@ region = Rect2(224, 0, 32, 32)
 [node name="BasicTurret" type="StaticBody2D" unique_id=1864483126]
 script = ExtResource("1_rqb6n")
 sight_range = 700.0
-rotation_speed = 1000.0
+rotation_speed = 10000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397136743]
 rotation = 1.5707964
@@ -34,8 +34,8 @@ shape = SubResource("CircleShape2D_pefxb")
 [node name="GenericGun" type="Node2D" parent="." unique_id=1779313236 node_paths=PackedStringArray("fire_position_node", "wielder")]
 position = Vector2(24, 0)
 script = ExtResource("2_1703m")
+damage = 15
 bullet_texture = SubResource("AtlasTexture_pefxb")
-speed = 300.0
 cool_down_time = 1.0
 projectile_scene = ExtResource("4_65acn")
 fire_position_node = NodePath(".")

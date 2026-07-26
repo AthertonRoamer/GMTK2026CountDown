@@ -99,6 +99,7 @@ func take_damage(dmg, _dmg_type : String = "default") -> void:
 	
 	
 func die():
-	dropped_item.place_on_ground(global_position)
+	if dropped_item:
+		dropped_item.place_on_ground(global_position)
 	queue_free()
 	
