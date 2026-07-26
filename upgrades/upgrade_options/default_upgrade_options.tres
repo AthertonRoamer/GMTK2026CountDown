@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cajujnujbocqf" path="res://upgrades/upgrade_options/upgrade_option_list.gd" id="1_e5r4d"]
 [ext_resource type="Script" uid="uid://c3n6t7c8clneh" path="res://upgrades/upgrade_scripts/upgrade.gd" id="2_a2edl"]
 [ext_resource type="Script" uid="uid://b1g7ib35c3lbf" path="res://upgrades/upgrade_scripts/cooldown_upgrade.gd" id="5_tge00"]
+[ext_resource type="Script" uid="uid://dbjmswqrbja3n" path="res://upgrades/upgrade_scripts/health_upgrade.gd" id="6_glkxx"]
 [ext_resource type="Script" uid="uid://cuumjkhrqkrp6" path="res://upgrades/upgrade_scripts/damage_upgrade.gd" id="6_k7mqp"]
 [ext_resource type="Script" uid="uid://d4frsfqiao7v8" path="res://upgrades/upgrade_scripts/spray_upgrade.gd" id="7_0xrea"]
 
@@ -24,7 +25,13 @@ description = "Increases bullets fired"
 name = "Spray Upgrade"
 metadata/_custom_type_script = "uid://d4frsfqiao7v8"
 
+[sub_resource type="Resource" id="Resource_kx6u3"]
+script = ExtResource("6_glkxx")
+description = "Buffs health"
+name = "Health upgrade"
+metadata/_custom_type_script = "uid://dbjmswqrbja3n"
+
 [resource]
 script = ExtResource("1_e5r4d")
-upgrade_options = Array[ExtResource("2_a2edl")]([SubResource("Resource_glkxx"), SubResource("Resource_e5r4d"), SubResource("Resource_hvq18")])
+upgrade_options = Array[ExtResource("2_a2edl")]([SubResource("Resource_glkxx"), SubResource("Resource_e5r4d"), SubResource("Resource_hvq18"), SubResource("Resource_kx6u3")])
 metadata/_custom_type_script = "uid://cajujnujbocqf"

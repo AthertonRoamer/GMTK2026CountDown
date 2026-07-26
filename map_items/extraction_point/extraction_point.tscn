@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://cbf1gfky52j0a"]
 
 [ext_resource type="Script" uid="uid://dmclo2et4ao6x" path="res://map_items/extraction_point/extraction_point.gd" id="1_2ldd4"]
-[ext_resource type="Texture2D" uid="uid://cwxup5pqtnccu" path="res://icon.svg" id="2_2ldd4"]
+[ext_resource type="Texture2D" uid="uid://dpe6h6noy0n7o" path="res://assets/art_round_1/player_and_guns.png" id="2_2ldd4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pefxb"]
 radius = 66.068146
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80xj1"]
+atlas = ExtResource("2_2ldd4")
+region = Rect2(160, 0, 32, 32)
 
 [node name="ExtractionPoint" type="Area2D" unique_id=545399916]
 script = ExtResource("1_2ldd4")
@@ -13,7 +17,7 @@ metadata/_custom_type_script = "uid://oesfcuere6bh"
 
 [node name="Label" type="Label" parent="." unique_id=1068485633]
 offset_left = -44.0
-offset_top = -46.0
+offset_top = -72.0
 offset_right = 45.0
 offset_bottom = -23.0
 text = "E to extract"
@@ -22,5 +26,5 @@ text = "E to extract"
 shape = SubResource("CircleShape2D_pefxb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310573402]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_2ldd4")
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_80xj1")

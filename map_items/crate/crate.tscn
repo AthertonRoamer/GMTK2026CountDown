@@ -1,16 +1,20 @@
 [gd_scene format=3 uid="uid://b828yhybu5xl0"]
 
-[ext_resource type="Texture2D" uid="uid://cwxup5pqtnccu" path="res://icon.svg" id="1_q2pwp"]
+[ext_resource type="Texture2D" uid="uid://baqwxvdxrsvcw" path="res://assets/art_round_1/walls_continued.png" id="1_q2pwp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_36jtr"]
-size = Vector2(60, 58)
+size = Vector2(79, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auex7"]
+atlas = ExtResource("1_q2pwp")
+region = Rect2(192, 0, 32, 32)
 
 [node name="Crate" type="StaticBody2D" unique_id=371770956]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414005674]
-position = Vector2(1, 0)
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_36jtr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1268667630]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_q2pwp")
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_auex7")

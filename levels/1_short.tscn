@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b4djjmd6xrkdy" path="res://items/pickable_item/generic_pickable_item.tscn" id="17_0t3mn"]
 [ext_resource type="Script" uid="uid://c2wqt2ftqbwhv" path="res://upgrades/upgrade_options/level_upgrade_options.gd" id="18_cf7sf"]
 [ext_resource type="Resource" uid="uid://bxhqmcyaoylv4" path="res://upgrades/upgrade_options/default_upgrade_options.tres" id="19_h248d"]
+[ext_resource type="AudioStream" uid="uid://bherxn6klaumc" path="res://assets/sound/GMTK26 (1).mp3" id="21_58act"]
 
 [node name="Short1" type="Node2D" unique_id=1984232441]
 script = ExtResource("1_xpw36")
@@ -178,7 +179,7 @@ wait_time = 155.0
 one_shot = true
 autostart = true
 script = ExtResource("13_sa0ro")
-bomb_wait_time = 10.0
+bomb_wait_time = 100.0
 
 [node name="Nuke" parent="." unique_id=799688003 instance=ExtResource("14_a1625")]
 position = Vector2(256, 895)
@@ -197,5 +198,10 @@ item = ExtResource("10_j5kqf")
 script = ExtResource("18_cf7sf")
 upgrade_options = ExtResource("19_h248d")
 metadata/_custom_type_script = "uid://c2wqt2ftqbwhv"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1764321725]
+stream = ExtResource("21_58act")
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="CountDown" to="CountDown" method="_on_timeout"]

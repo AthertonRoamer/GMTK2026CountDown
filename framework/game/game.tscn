@@ -4,23 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://cw01qeyxavh32" path="res://framework/game/level_system/level_menu/level_menu.tscn" id="2_2ckys"]
 [ext_resource type="Script" uid="uid://d3p0l0b5841ro" path="res://framework/game/game_level_manager.gd" id="2_erbt7"]
 [ext_resource type="Script" uid="uid://tidjdpqv0mrg" path="res://framework/game/level_system/level/level_data.gd" id="3_edldn"]
-
-[ext_resource type="PackedScene" uid="uid://e08ckq18wnum" path="res://levels/1_level.tscn" id="4_1qalo"]
-[ext_resource type="PackedScene" uid="uid://d3yeukgb318c1" path="res://test_levels/1_test_level.tscn" id="4_10ul7"]
-[ext_resource type="PackedScene" uid="uid://dgx1wupnepqos" path="res://levels/2_level.tscn" id="4_h6l0g"]
-
-
-
 [ext_resource type="PackedScene" uid="uid://e08ckq18wnum" path="res://levels/old_tutorial.tscn" id="4_1qalo"]
 [ext_resource type="PackedScene" uid="uid://dgx1wupnepqos" path="res://levels/long_level.tscn" id="4_h6l0g"]
+[ext_resource type="PackedScene" uid="uid://b0xnktwweky7u" path="res://levels/1_short.tscn" id="7_10ul7"]
 
 [sub_resource type="Resource" id="Resource_rvnd4"]
-script = ExtResource("3_edldn")
-level_scene = ExtResource("4_1qalo")
-
-metadata/_custom_type_script = "uid://tidjdpqv0mrg"
-
-[sub_resource type="Resource" id="Resource_y8b25"]
 script = ExtResource("3_edldn")
 level_scene = ExtResource("4_1qalo")
 metadata/_custom_type_script = "uid://tidjdpqv0mrg"
@@ -30,13 +18,23 @@ script = ExtResource("3_edldn")
 level_scene = ExtResource("4_h6l0g")
 metadata/_custom_type_script = "uid://tidjdpqv0mrg"
 
+[sub_resource type="Resource" id="Resource_h8lyd"]
+script = ExtResource("3_edldn")
+level_scene = ExtResource("7_10ul7")
+metadata/_custom_type_script = "uid://tidjdpqv0mrg"
+
+[sub_resource type="Resource" id="Resource_y8b25"]
+script = ExtResource("3_edldn")
+level_scene = ExtResource("4_1qalo")
+metadata/_custom_type_script = "uid://tidjdpqv0mrg"
+
 [node name="Game" type="Node" unique_id=1775706799]
 script = ExtResource("1_hica5")
+open_to_menu = true
 
 [node name="LevelMenu" parent="." unique_id=1670031119 instance=ExtResource("2_2ckys")]
 
 [node name="LevelManager" type="Node" parent="." unique_id=671799761]
 script = ExtResource("2_erbt7")
 test_level = SubResource("Resource_rvnd4")
-insert_test_level_at_beginning_of_list = true
-level_list = Array[ExtResource("3_edldn")]([SubResource("Resource_y8b25"), SubResource("Resource_tn0ak")])
+level_list = Array[ExtResource("3_edldn")]([SubResource("Resource_tn0ak"), SubResource("Resource_h8lyd"), SubResource("Resource_y8b25")])

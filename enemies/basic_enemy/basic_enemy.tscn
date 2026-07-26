@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://c375j8mj8fkfs"]
 
-[ext_resource type="Texture2D" uid="uid://dpe6h6noy0n7o" path="res://assets/art_round_1/player_and_guns.png" id="1_lbl0g"]
 [ext_resource type="Script" uid="uid://c44emcy87bdaj" path="res://enemies/basic_enemy/basic_enemy.gd" id="1_yx0l5"]
 [ext_resource type="Script" uid="uid://camaetxvhn1xp" path="res://state_machine/state_machine.gd" id="3_xuk7h"]
 [ext_resource type="Script" uid="uid://d283prp6rq2e5" path="res://enemies/basic_enemy/patrol.gd" id="4_xuk7h"]
@@ -8,6 +7,10 @@
 [ext_resource type="Script" uid="uid://b41jf4g1ryyc2" path="res://enemies/basic_enemy/basic_fight_state.gd" id="5_u66kj"]
 [ext_resource type="Script" uid="uid://bpxb3pqe38h51" path="res://enemies/basic_enemy/basic_pursue_state.gd" id="6_fwb20"]
 [ext_resource type="Script" uid="uid://dckjuo2vl78xe" path="res://projectile/generic_gun.gd" id="8_hpkks"]
+[ext_resource type="Texture2D" uid="uid://bt52lsfycmlfs" path="res://assets/art_round_1/Key.png" id="8_rutms"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wf1kn"]
+load_path = "res://.godot/imported/player_and_guns 2.png-c1c063614bcf438d57cd44a118053252.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pefxb"]
 radius = 24.0
@@ -15,9 +18,9 @@ height = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6spd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pefxb"]
-atlas = ExtResource("1_lbl0g")
-region = Rect2(224, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4madv"]
+atlas = ExtResource("8_rutms")
+region = Rect2(64, 0, 32, 32)
 
 [node name="BasicEnemy" type="CharacterBody2D" unique_id=447549324]
 script = ExtResource("1_yx0l5")
@@ -27,8 +30,9 @@ pursue_distance = 650.0
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656126314]
 rotation = 1.5707964
 scale = Vector2(4, 4)
-texture = ExtResource("1_lbl0g")
-hframes = 8
+texture = SubResource("CompressedTexture2D_wf1kn")
+hframes = 7
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1435077637]
 position = Vector2(-16, 0)
@@ -68,9 +72,9 @@ shape = SubResource("CircleShape2D_m6spd")
 [node name="CanSeePlayerRayCast2D" type="RayCast2D" parent="." unique_id=68786376]
 
 [node name="GenericGun" type="Node2D" parent="." unique_id=1967613015]
-position = Vector2(19, 0)
+position = Vector2(32, 4)
 script = ExtResource("8_hpkks")
-bullet_texture = SubResource("AtlasTexture_pefxb")
+bullet_texture = SubResource("AtlasTexture_4madv")
 speed = 300.0
 cool_down_time = 1.0
 metadata/_custom_type_script = "uid://dckjuo2vl78xe"
