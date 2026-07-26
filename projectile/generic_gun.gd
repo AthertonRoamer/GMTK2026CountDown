@@ -7,6 +7,13 @@ extends CoolDownProjectileHandler
 @export var bullet_size_multiplier : float = 1
 @export var bullet_spray : int = 1
 @export var spray_dif_angle : float = 5
+var sound : AudioStreamPlayer2D
+
+func _ready() -> void:
+	super()
+	sound = AudioStreamPlayer2D.new()
+	sound.stream = preload("res://assets/sound/laser_sound.wav")
+	add_child(sound)
 
 func set_up_projectile() -> Projectile:
 	var new_projectile : Projectile = super()
@@ -33,3 +40,4 @@ func fire_projectile() -> void:
 		new_projectile.direction = new_projectile.direction.rotated(i * deg_to_rad(spray_dif_angle))
 		new_projectile.rotation = new_projectile.direction.angle() + PI / 2
 		Main.main.get_world().add_child(new_projectile)
+	sound.play()
