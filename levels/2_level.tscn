@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cbf1gfky52j0a" path="res://map_items/extraction_point/extraction_point.tscn" id="16_er4yu"]
 [ext_resource type="PackedScene" uid="uid://b4djjmd6xrkdy" path="res://items/pickable_item/generic_pickable_item.tscn" id="17_buspi"]
 [ext_resource type="PackedScene" uid="uid://b828yhybu5xl0" path="res://map_items/crate/crate.tscn" id="18_7k2fe"]
+[ext_resource type="Script" uid="uid://c2wqt2ftqbwhv" path="res://upgrades/upgrade_options/level_upgrade_options.gd" id="19_c0rnm"]
+[ext_resource type="Resource" uid="uid://bxhqmcyaoylv4" path="res://upgrades/upgrade_options/default_upgrade_options.tres" id="20_wxeun"]
 
 [node name="Level" type="Node2D" unique_id=1984232441]
 script = ExtResource("1_fuyj5")
@@ -281,5 +283,10 @@ position = Vector2(1825, -1454)
 
 [node name="Crate2" parent="Crates" unique_id=2010137542 instance=ExtResource("18_7k2fe")]
 position = Vector2(7075, -2498)
+
+[node name="LevelUpgradeOptions" type="Node" parent="." unique_id=1732318824]
+script = ExtResource("19_c0rnm")
+upgrade_options = ExtResource("20_wxeun")
+metadata/_custom_type_script = "uid://c2wqt2ftqbwhv"
 
 [connection signal="timeout" from="CountDown" to="CountDown" method="_on_timeout"]
