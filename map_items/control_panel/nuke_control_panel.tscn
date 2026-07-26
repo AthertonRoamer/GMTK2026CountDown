@@ -16,6 +16,7 @@ message = "E to disarm nuke"
 metadata/_custom_type_script = "uid://oesfcuere6bh"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=761182269]
+position = Vector2(4, 4)
 scale = Vector2(4, 4)
 texture = ExtResource("2_rkqp8")
 hframes = 8
