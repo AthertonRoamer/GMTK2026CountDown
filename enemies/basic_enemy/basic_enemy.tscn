@@ -21,6 +21,8 @@ region = Rect2(224, 0, 32, 32)
 
 [node name="BasicEnemy" type="CharacterBody2D" unique_id=447549324]
 script = ExtResource("1_yx0l5")
+sight_range = 700.0
+pursue_distance = 650.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656126314]
 rotation = 1.5707964
