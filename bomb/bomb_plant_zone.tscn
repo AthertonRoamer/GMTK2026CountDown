@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://baqwxvdxrsvcw" path="res://assets/art_round_1/walls_continued.png" id="3_pal1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pefxb"]
-size = Vector2(81, 40)
+size = Vector2(80, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpg11"]
 size = Vector2(128, 128)
@@ -29,6 +29,7 @@ text = "Hold F to plant bomb"
 horizontal_alignment = 1
 
 [node name="BombSprite" type="Sprite2D" parent="." unique_id=828209713]
+visible = false
 scale = Vector2(4, 4)
 texture = ExtResource("3_pal1f")
 hframes = 6
@@ -37,7 +38,6 @@ frame = 5
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1337062324]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=800585462]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_pefxb")
 disabled = true
 

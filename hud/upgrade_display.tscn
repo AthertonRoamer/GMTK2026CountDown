@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bs0s7m4vih6xk"]
+
+[ext_resource type="Script" uid="uid://dr737pxyvrll2" path="res://hud/upgrade_display.gd" id="1_skl6k"]
+
+[node name="UpgradeDisplay" type="VBoxContainer" unique_id=241865878]
+process_mode = 3
+custom_minimum_size = Vector2(300, 0)
+script = ExtResource("1_skl6k")
+
+[node name="Label" type="Label" parent="." unique_id=1401788348]
+layout_mode = 2
+text = "Upgrade Name"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=958354446]
+layout_mode = 2
+text = "Upgrade Description"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1237324489]
+layout_mode = 2
+text = "Select"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
